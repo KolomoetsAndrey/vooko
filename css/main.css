@@ -5,6 +5,39 @@
   --main-text: #131517;
   --get-btn: #01b399;
 }
+@keyframes bounce-1 {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(150px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes bounce-2 {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-250px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes bounce-3 {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-400px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 html,
 body {
   font-family: 'Montserrat', sans-serif;
@@ -29,10 +62,7 @@ button {
   outline-offset: 0 !important;
 }
 .header {
-  background-image: url(../images/main_bg.png);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: var(--bg-color);
 }
 .header .main_menu {
   justify-content: space-between;
@@ -40,11 +70,31 @@ button {
   padding-bottom: 50px;
 }
 .header .main_menu .phone {
+  position: relative;
   width: max-content;
   color: var(--title-text);
   letter-spacing: 1px;
   font-weight: bold;
   text-decoration: none;
+  z-index: 10;
+}
+.header .main_menu .phone:after {
+  position: absolute;
+  content: "";
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  background: #5b8c992b;
+  display: flex;
+  top: -20px;
+  left: -1px;
+  z-index: -1;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+.header .main_menu .phone:hover:after {
+  animation-name: bounce-1;
+  animation-timing-function: linear;
 }
 .header .main_menu .menu {
   position: absolute;
@@ -83,20 +133,36 @@ button {
   color: #d2d7db;
 }
 .header .main_menu .send {
-  margin-left: 10%;
-  padding: 5px 15px;
-  border-radius: 0;
-  border: none;
-  background-color: var(--bg-color);
-  color: var(--title-text);
-  transition: all 0.5s;
-}
-.header .main_menu .send svg {
-  margin-right: 10px;
-}
-.header .main_menu .send:hover {
-  background-color: var(--get-btn);
+  margin-top: 50px;
+  font-size: 20px;
   color: var(--bg-color);
+  text-decoration: none;
+  font-weight: 800;
+  text-transform: uppercase;
+  width: max-content;
+  position: relative;
+  z-index: 100;
+  background: transparent;
+  border: none;
+  margin-left: 10%;
+}
+.header .main_menu .send:after {
+  position: absolute;
+  content: "";
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  background-color: #5b8c992b;
+  display: flex;
+  top: -43px;
+  right: -67px;
+  z-index: -1;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+.header .main_menu .send:hover:after {
+  animation-name: bounce-3;
+  animation-timing-function: linear;
 }
 .header .main_menu .hamburger {
   width: 25px;
@@ -174,6 +240,101 @@ button {
   font-size: 18px;
   color: var(--main-text);
   padding-left: 185px;
+}
+.header .avatar {
+  width: 100%;
+  height: auto;
+  margin-bottom: 100px;
+}
+.header .info {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-end;
+  padding-bottom: 170px;
+}
+.header h1 {
+  font-size: 75px;
+  font-weight: 800;
+  margin-top: 50px;
+  position: relative;
+  z-index: 100;
+}
+.header h1:before {
+  position: absolute;
+  content: "";
+  height: 70px;
+  width: 70px;
+  border-radius: 100%;
+  background-color: #5b8c992b;
+  display: flex;
+  top: -175px;
+  left: -95px;
+  z-index: -1;
+}
+.header h1:after {
+  position: absolute;
+  content: "";
+  height: 200px;
+  width: 200px;
+  border-radius: 100%;
+  background-color: #5b8c997d;
+  display: flex;
+  top: -85px;
+  right: 100px;
+  z-index: -1;
+}
+.header .subtext {
+  font-size: 25px;
+  font-weight: normal;
+  margin-top: 25px;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 100;
+}
+.header .subtext:after {
+  position: absolute;
+  content: "";
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  background-color: #5b8c9954;
+  display: flex;
+  top: -20px;
+  right: 90%;
+  z-index: -1;
+}
+.header .next {
+  margin-top: 50px;
+  font-size: 28px;
+  color: var(--title-text);
+  text-decoration: none;
+  font-weight: 900;
+  text-transform: uppercase;
+  width: max-content;
+  position: relative;
+  z-index: 100;
+}
+.header .next:after {
+  position: absolute;
+  content: "";
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  background-color: #5b8c992b;
+  display: flex;
+  top: -43px;
+  right: -67px;
+  z-index: -1;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+.header .next:hover:after {
+  animation-name: bounce-2;
+  animation-timing-function: linear;
+}
+.header .vooko {
+  font-weight: 600;
 }
 .section_title {
   font-size: 50px;

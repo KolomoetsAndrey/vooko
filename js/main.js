@@ -11,7 +11,7 @@ $(document).ready(function() {
             $mobileNav.css({"visibility": "hidden"});
 		}
 		else {
-			$mobileNav.css({"width": "80%"});
+			$mobileNav.css({"width": "52%"});
             $mobileNav.css({"opacity": "1"});
             $mobileNav.css({"visibility": "visible"});
 		}
